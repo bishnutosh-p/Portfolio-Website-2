@@ -1,6 +1,9 @@
+/* eslint-disable no-unused-vars */
 import { Suspense } from "react"
 import { Canvas } from "@react-three/fiber"
 import Loader from "../components/Loader"
+import Island from "../models/Island"
+
 
 const Home = () => {
   return (
@@ -14,14 +17,12 @@ const Home = () => {
             camera={{near : 0.1, far : 1000}}
         >
             <Suspense fallback={<Loader />}> 
-                <ambientLight color></ambientLight>
+                <directionalLight />
+                <ambientLight />
+                <spotLight />
+                <hemisphereLight />
+                <Island />
             </Suspense>
-            {/* <ambientLight intensity={0.5} />
-            <pointLight position={[10, 10, 10]} />
-            <mesh rotation={[0, 0, 0]} position={[0, 0, -5]} receiveShadow>
-                <boxGeometry args={[1, 1, 1]} />
-                <meshStandardMaterial color="blue" />
-            </mesh> */}
         </Canvas>
 
     </section>
